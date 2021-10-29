@@ -5,8 +5,7 @@ import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { catchError, tap } from 'rxjs/operators';
 import { MonitoringService } from './logging.service';
 
 
@@ -15,12 +14,8 @@ import { MonitoringService } from './logging.service';
 })
 export class HeroService {
 
-  // private heroesUrl = 'api/heroes';
-  // private heroesUrl = 'https://localhost:5001/api/hero';
-  // private heroesUrl = 'https://tour-of-heroes-webapi.azurewebsites.net/api/hero'; //URL to the web api
-  // private heroesUrl = 'https://tour-of-heroes-webapi-azure-storage.azurewebsites.net/api/hero';
-
-  private heroesUrl = environment.apiUrl;
+  private heroesUrl = 'api/heroes';
+   
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -46,10 +41,7 @@ export class HeroService {
     return this.http.get(`${this.heroesUrl}/alteregopic/${id}`, { responseType: 'blob' });
   }
 
-  getHeroes(): Observable<Hero[]> {
-    // const heroes = of(HEROES);
-    // this.messageService.add('HeroService: fetched heroes')
-    // return heroes;
+  getHeroes(): Observable<Hero[]> {   
 
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
@@ -58,10 +50,7 @@ export class HeroService {
   }
 
   /** GET hero by id. Will 404 if id not found */
-  getHero(id: number): Observable<Hero> {
-    // const hero = HEROES.find(h => h.id === id)!;
-    // this.messageService.add(`HeroService: fetched hero id=${id}`);
-    // return of(hero);
+  getHero(id: number): Observable<Hero> {   
 
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(

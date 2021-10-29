@@ -11,8 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DashboardComponent implements OnInit {
 
-  heroes: Hero[] = [];
-  storageUrl = environment.storageUrl;
+  heroes: Hero[] = [];  
 
   constructor(private heroService: HeroService) { }
 

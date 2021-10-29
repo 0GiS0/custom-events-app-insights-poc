@@ -11,8 +11,7 @@ import { MessageService } from '../message.service';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes: Hero[] = [];
-  storageUrl = environment.storageUrl;
+  heroes: Hero[] = [];  
 
   constructor(private heroService: HeroService, private messageService: MessageService) { }
 

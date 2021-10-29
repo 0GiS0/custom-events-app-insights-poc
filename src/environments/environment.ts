@@ -3,13 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  containerName: "alteregos",
-  apiUrl: "https://localhost:5001/api/hero",
+  production: false,  
   appInsights: {
-    instrumentationKey: "67e81efa-8a4d-4add-a5cc-78770a6fa5e2"
-  },
-  storageUrl: "https://herostore.blob.core.windows.net"
+    instrumentationKey: "<YOUR_INSTRUMENTATION_KEY>>"
+  }  
 };
 
 /*
